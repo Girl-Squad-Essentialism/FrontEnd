@@ -8,11 +8,11 @@ const Footer = () => {
         <div>
             <Breadcrumb>
                 <Breadcrumb.Item>
-                    <a href="./signInForm">Sign In</a>
+                    <a href="./SignInForm">Sign In</a>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Image</Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <a href="./contactUs">Contact Us</a>
+                    <a href="./ContactUs">Contact Us</a>
                 </Breadcrumb.Item>
             </Breadcrumb>,
         </div>
