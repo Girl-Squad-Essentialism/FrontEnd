@@ -8,6 +8,8 @@ import {
     HomeOutlined,
     SettingFilled,
 } from '@ant-design/icons';
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 
 const { Title } = Typography;
 const { SubMenu } = Menu;
@@ -28,26 +30,31 @@ class Header extends React.Component {
         }
         return (
             <div className="header-div">
+
                 <div style={{ width: 256 }}>
-                    <Menu
-                        style={navStyle}
-                        onClick={this.handleClick}
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
-                        mode="inline"
-                    >
-                        <SubMenu key="sub1" title="Navigation" icon={<SettingFilled />}>
-                            <Menu.Item key="1" icon={<LaptopOutlined />}>
-                                Home
+                    <Router>
+                        <Menu
+                            style={navStyle}
+                            onClick={this.handleClick}
+                            defaultSelectedKeys={['1']}
+                            defaultOpenKeys={['sub1']}
+                            mode="inline"
+                        >
+                            <SubMenu key="sub1" title="Navigation" icon={<SettingFilled />}>
+                                <Menu.Item key="1" icon={<LaptopOutlined />}>
+                                    Home
                     </Menu.Item>
-                            <Menu.Item key="2" icon={<SyncOutlined />}>
+                                <Menu.Item key="2" icon={<SyncOutlined />}>
+                                    <Link to="/register" />
                                 Register
                     </Menu.Item>
-                            <Menu.Item key="3" icon={<HomeOutlined />}>
-                                Sign In
+                                <Menu.Item key="3" icon={<HomeOutlined />}>
+                                    <Link to="/signin" />
+                                    Sign In
                     </Menu.Item>
-                        </SubMenu>
-                    </Menu>
+                            </SubMenu>
+                        </Menu>
+                    </Router>
                 </div >
                 <Title>Essentialism</Title>
                 <Menu
