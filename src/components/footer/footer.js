@@ -3,16 +3,15 @@ import 'antd/dist/antd.css';
 import { Breadcrumb } from 'antd';
 
 const Footer = () => {
-
     return (
         <div>
             <Breadcrumb>
                 <Breadcrumb.Item>
-                    <a href="./SignInForm">Sign In</a>
+                    <a href="./signin">Sign In</a>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Image</Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <a href="./ContactUs">Contact Us</a>
+                    <a href="./contactus">Contact Us</a>
                 </Breadcrumb.Item>
             </Breadcrumb>,
         </div>
