@@ -1,8 +1,6 @@
 import React from "react";
 import "../../App.css";
 import Header from "../header/Header";
-import Footer from "../footer/Footer";
-
 
 const Home = () => {
 
@@ -21,7 +19,6 @@ const Home = () => {
                     <p>Until you have the inner discipline that brings calmness of mind, external facilities and conditions will never bring the joy and happiness you seek. On the other hand, if you possess this inner quality, calmness of mind, a degree of stability within, even if you lack the various external factors that you would normally require to be happy, it will still be possible to live a happy and joyful life.</p>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
