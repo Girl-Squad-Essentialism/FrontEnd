@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import contactSchema from "./contactSchema";
 import emailjs from 'emailjs-com';
-import dotenv from "dotenv";
+import env from "react-dotenv";
 import { init } from 'emailjs-com';
 // import './ContactUs.css';   add a design file and import here 
 
-dotenv.config()
 
-init(process.env.YOUR_USER_ID);
+init(env.YOUR_USER_ID);
+// console.log(env.YOUR_USER_ID)
 
 const initialFormValues = {
     email: '',
@@ -16,9 +16,9 @@ const initialFormValues = {
     last_name: '',
     message: '',
     phone_number: '',
-    service_id: process.env.YOUR_SERVICE_ID,
-    template_id: process.env.YOUR_TEMPLATE_ID,
-    user_id: process.env.YOUR_USER_ID,
+    service_id: env.YOUR_SERVICE_ID,
+    template_id: env.YOUR_TEMPLATE_ID,
+    user_id: env.YOUR_USER_ID,
 }
 
 const initialFormErrors = {
@@ -77,7 +77,7 @@ export default function ContactUs() {
     function sendEmail(e) {
         e.preventDefault();
         console.log("here")
-        emailjs.send(process.env.YOUR_SERVICE_ID, process.env.YOUR_TEMPLATE_ID, formValues, process.env.YOUR_USER_ID)
+        emailjs.send(env.YOUR_SERVICE_ID, env.YOUR_TEMPLATE_ID, formValues, env.YOUR_USER_ID)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
