@@ -16,6 +16,8 @@ const contactSchema = yup.object().shape({
     .min(2, "please enter last name at least 2 characters long")
     .max(64, "last name cannot be longer than 64 characters")
     .required("please enter your last name"),
+  phone_number: yup
+    .string(),
   message: yup
     .string()
 })
