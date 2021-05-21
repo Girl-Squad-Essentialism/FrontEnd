@@ -10,7 +10,7 @@ const Values = () => {
 
     // edit values
 
-    // list of values 
+    // list of  values 
 
     return (
         <div>
