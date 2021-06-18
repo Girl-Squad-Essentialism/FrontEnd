@@ -5,6 +5,8 @@ import RegisterForm from "./components/register/RegisterForm"
 import SignInForm from "./components/signIn/SignInForm"
 import Footer from "./components/footer/Footer"
 import ContactUs from "./components/contactUs/ContactUs"
+import ValuesPrompt from "./components/values/ValuesPrompt"
+import Values from "./components/values/Values"
 
 function App() {
   return (
@@ -22,8 +24,15 @@ function App() {
       <Route exact path="/contactus">
         <ContactUs />
       </Route>
-      </Switch>
 
+      {/* private routes */}
+      <Route exact path="/valuesprompt">
+        <ValuesPrompt />
+      </Route>
+      <Route exact path="/values">
+        <Values />
+      </Route>
+      </Switch>
 
       <Footer />
     </div>

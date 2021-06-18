@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import "../../App.css";
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     valuesList: {
@@ -30,33 +31,14 @@ const initialValues = {
         wealth: false,
         wisdom: false,
     },
-    valueOne: "",
-    valueTwo: "",
-    valueThree: "",
-    valueOneWhy: "",
-    valueTwoWhy: "",
-    valueThreeWhy: "",
-}
-
-const initialErrors = {
-    valueOneWhy: "",
-    valueTwoWhy: "",
-    valueThreeWhy: "",
 }
 
 const initialDisabled = true
 
 const Values = () => {
     const [values, setValues] = useState(initialValues)
-    const [formErrors, setFormErrors] = useState(initialErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
-
-    const onInputChange = (evt) => {
-        const { name } = evt.target;
-        const { value } = evt.target;
-
-        //add yup validation here
-    }
+    const history = useHistory()
 
     const onCheckboxChange = (evt) => {
         const { name } = evt.target;
@@ -69,25 +51,16 @@ const Values = () => {
                 [name]: checked,
             },
         });
+         //schema - 3 boxes checked
     };
 
     const onSubmit = (evt) => {
         evt.preventDefault();
 
-        const userValues = {
-            valuesList: values.valuesList,
-            valueOne: values.valueOne,
-            valueTwo: values.valueTwo,
-            valueThree: values.valueThree,
-            valueOneWhy: values.valueOneWhy.trim(),
-            valueTwoWhy: values.valueTwoWhy.trim(),
-            valueThreeWhy: values.valueThreeWhy.trim(),
-        }
-        //add axios call here   
+        //add axios call here 
         //postValues(userValues);
+        history.push("/valuesprompt")
     }
-    //add useEffect once schema is done, add submit button to handle submit
-
 
     return (
         <div>
@@ -434,7 +407,8 @@ const Values = () => {
                     </div>
                 </div>
             </div>
-         </div>
+            <button>Next</button>
+        </div>
     )
 }
 
