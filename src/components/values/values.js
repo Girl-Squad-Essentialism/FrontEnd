@@ -58,16 +58,19 @@ const Values = () => {
         evt.preventDefault();
 
         //add axios call here 
+        //include .finally here to change state back to initialValues 
         //postValues(userValues);
         history.push("/valuesprompt")
     }
 
     return (
         <div>
+            
             <h1>Values</h1>
             <h2>List of Values</h2>
             <div className="values-list">
                 Add Values
+                {/* need to discuss class name components for values */}
                 <div className="value1">
                     <div className="values-column">
                         <label>

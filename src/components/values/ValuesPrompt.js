@@ -32,8 +32,10 @@ const ValuesPrompt = () => {
         const { name } = evt.target;
         const { value } = evt.target;
 
+        //save the value to the approriate state value here
         //add yup validation here for dropdown to only allow unique values
     }
+
 
     //get request on values prompt, object values with array, render select with options based on array 
 
