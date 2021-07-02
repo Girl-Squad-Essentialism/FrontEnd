@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../../App.css";
+import { connect } from "react-redux";
+import { values } from "../../actions";
+// use updateValues action for choosing the top 3 and removeValues action to remove from the dropdown when chosen
 
 
 const initialValues = {
@@ -99,4 +102,12 @@ const ValuesPrompt = () => {
     )
 }
 
-export default ValuesPrompt
+const mapStateToProps = (state) => {
+    return {
+      valuesList: state.values
+    }
+  };
+  
+  const mapDispatchToProps = { values };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ValuesPrompt)
