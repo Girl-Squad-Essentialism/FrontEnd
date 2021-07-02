@@ -21,7 +21,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         valuesList: action.payload
       };
-    case global.CLEAR_VALUES:
+    case global.CLEAR_USER:
       return initialState;
     default:
       return state;
