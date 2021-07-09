@@ -4,7 +4,26 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import registerSchema from "./registerSchema";
+import "./registerForm.css"
+import { Form, Input, Button, PageHeader } from 'antd';
 
+//Styling 
+const registerStyle = {
+  padding: "25%",
+  justifyContent: "center"
+}
+
+const titleStyle = {
+  textAlign: "center",
+  paddingLeft: "25%",
+  // fontSize: "68px"
+}
+
+const linkStyle = {
+  textAlign: "center",
+  paddingLeft: "43%",
+  margin: "10%",
+}
 
 const initialFormValues = {
   username: '',
@@ -102,10 +121,30 @@ const RegisterForm = () => {
     });
   }, [formValues]);
 
+
   return (
     <div>
-      <form className='form1' onSubmit={onSubmit}>
-        <h1>Register</h1>
+      <Form
+        onSubmit={onSubmit}
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        style={registerStyle}
+      // initialValues={{
+      //   remember: true,
+      // }}
+      >
+
+        <PageHeader
+          label="Register"
+          className="site-page-header"
+          title="Register"
+          style={titleStyle}
+        />
 
         <div>
           <div>{formErrors.username}</div>
@@ -115,71 +154,98 @@ const RegisterForm = () => {
           <div>{formErrors.last_name}</div>
         </div>
 
-        <div className="username1">
-          <label>Username:     </label>
-          <input
-            value={formValues.username}
-            onChange={onChange}
-            name='username'
-            type='username'
-          />
-        </div>
+        <Form.Item
+          label="Username"
+          name="username"
+          type='username'
+          value={formValues.username}
+          onChange={onChange}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your username!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <div className="password1">
-          <label>Password:     </label>
-          <input
-            value={formValues.password}
-            onChange={onChange}
-            autoComplete='true'
-            suggested="current-password"
-            name='password'
-            type='password'
-          />
-        </div>
+        <Form.Item
+          label="Password"
+          name="password"
+          value={formValues.password}
+          onChange={onChange}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-        <div className="email1">
-          <label>Email:     </label>
-          <input
-            value={formValues.email}
-            onChange={onChange}
-            autoComplete='true'
-            suggested="email"
-            name='email'
-            type='email'
-          />
-        </div>
+        <Form.Item
+          label="Email"
+          name="email"
+          type='email'
+          value={formValues.email}
+          onChange={onChange}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your email!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <div className="firstName1">
-          <label>First Name:     </label>
-          <input
-            value={formValues.first_name}
-            onChange={onChange}
-            autoComplete='true'
-            suggested="first-name"
-            name='first_name'
-            type='first_name'
-          />
-        </div>
+        <Form.Item
+          label="First Name"
+          name="firstName"
+          type='firstName'
+          value={formValues.first_name}
+          onChange={onChange}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your first name!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <div className="lastName1">
-          <label>Last Name:     </label>
-          <input
-            value={formValues.last_name}
-            onChange={onChange}
-            autoComplete='true'
-            suggested="last-name"
-            name='last_name'
-            type='last_name'
-          />
-        </div>
+        <Form.Item
+          label="Last Name"
+          name="lastName"
+          type='lastName'
+          value={formValues.last_name}
+          onChange={onChange}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your last name!',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
 
-        <button disabled={disabled} id='button2'>Submit</button>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit" disabled={disabled}>Submit</Button>
+        </Form.Item>
 
-        {/* new users click here, or something else, need to sign up? */}
         <div className='sign-in-link'>
-          <Link to='/signin'>Already a member? Sign in here.</Link>
+          <Link to='/signin'style={linkStyle}>Already a member? Sign in here.</Link>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };

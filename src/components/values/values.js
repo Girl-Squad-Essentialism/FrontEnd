@@ -66,13 +66,12 @@ const Values = () => {
 
     return (
         <div>
-
             <h1>Values</h1>
             <h2>List of Values</h2>
             <div className="values-list">
                 {Object.keys(values.valuesList).map(value => (
-                    <ValuesInput value={value} onCheckboxChange={onCheckboxChange} valueObj={values.valuesList[value]} key={value}/>
-                ))}               
+                    <ValuesInput value={value} onCheckboxChange={onCheckboxChange} valueObj={values.valuesList[value]} key={value} />
+                ))}
             </div>
             <button>Next</button>
         </div>
