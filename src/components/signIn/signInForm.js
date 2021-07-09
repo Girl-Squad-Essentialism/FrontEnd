@@ -4,6 +4,24 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import signInSchema from "./signInSchema";
+import "./signInForm.css"
+import { Form, Input, Button, PageHeader } from 'antd';
+
+//Styling 
+const signInStyle = {
+    padding: "25%",
+    justifyContent: "center"
+}
+const titleStyle = {
+    textAlign: "center",
+    paddingLeft: "25%",
+    // fontSize: "68px"
+}
+const linkStyle = {
+    textAlign: "center",
+    paddingLeft: "43%",
+    margin: "10%",
+}
 
 const initialFormValues = {
     username: '',
@@ -95,44 +113,79 @@ const SignInForm = () => {
 
     return (
         <div>
-            <form className='form2' onSubmit={onSubmit}>
-                <h1>SignIn</h1>
+            <Form
+                onSubmit={onSubmit}
+                name="basic"
+                labelCol={{
+                    span: 8,
+                }}
+                wrapperCol={{
+                    span: 16,
+                }}
+                style={signInStyle}
+            // initialValues={{
+            //   remember: true,
+            // }}
+            >
+
+                <PageHeader
+                    label="SignIn "
+                    className="site-page-header"
+                    title="SignIn"
+                    style={titleStyle}
+                />
 
                 <div>
                     <div>{formErrors.username}</div>
                     <div>{formErrors.password}</div>
                 </div>
 
-                <div className="username2">
-                    <label>Username:     </label>
-                    <input
-                        value={formValues.username}
-                        onChange={onChange}
-                        name='username'
-                        type='username'
-                    />
-                </div>
+                <Form.Item
+                    label="Username"
+                    name="username"
+                    type='username'
+                    value={formValues.username}
+                    onChange={onChange}
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
 
-                <div className="password2">
-                    <label>Password:     </label>
-                    <input
-                        value={formValues.password}
-                        onChange={onChange}
-                        autoComplete='true'
-                        suggested="current-password"
-                        name='password'
-                        type='password'
-                    />
-                </div>
+                <Form.Item
+                    label="Password"
+                    name="password"
+                    value={formValues.password}
+                    onChange={onChange}
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your password!',
+                        },
+                    ]}
+                >
+                    <Input.Password />
+                </Form.Item>
 
-                <button disabled={disabled} id='button2'>Submit</button>
+                <Form.Item
+                    wrapperCol={{
+                        offset: 8,
+                        span: 16,
+                    }}
+                >
+                    <Button type="primary" htmlType="submit" disabled={disabled}>Submit</Button>
+                </Form.Item>
 
                 {/* new users click here, or something else, need to sign up? */}
                 <div className='sign-in-link'>
-                    <Link to='/register'>Not a member? Register here.</Link>
+                    <Link to='/register' style={linkStyle}>Not a member? Register here.</Link>
                 </div>
-            </form>
-        </div>
+            </Form>
+        </div >
     );
 };
 
