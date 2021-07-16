@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import { reducer } from "./reducers";
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -17,7 +17,7 @@ ReactDOM.render(
     <Router>
       <App />
     </Router>
-    </Provider>,
+  </Provider>,
   document.getElementById('root')
 );
 

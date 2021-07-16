@@ -10,28 +10,28 @@ import Values from "./components/values/Values"
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/register">
-            <RegisterForm />
-          </Route>
-          <Route exact path="/signin">
-            <SignInForm />
-          </Route>
-          <Route exact path="/contactus">
-            <ContactUs />
-          </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/register">
+          <RegisterForm />
+        </Route>
+        <Route exact path="/signin">
+          <SignInForm />
+        </Route>
+        <Route exact path="/contactus">
+          <ContactUs />
+        </Route>
 
-          {/* private routes */}
-          <Route exact path="/valuesprompt">
-            <ValuesPrompt />
-          </Route>
-          <Route exact path="/values">
-            <Values />
-          </Route>
+        {/* private routes */}
+        <Route exact path="/valuesprompt">
+          <ValuesPrompt />
+        </Route>
+        <Route exact path="/values">
+          <Values />
+        </Route>
       </Switch>
 
       <Footer />
