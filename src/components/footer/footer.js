@@ -7,11 +7,11 @@ const Footer = () => {
         <div>
             <Breadcrumb style={{ textAlign: "center" }}>
                 <Breadcrumb.Item>
-                    <a href="./signin">Sign In</a>
+                    <a href="./signin" style={{ color: "#ffffff" }}>Sign In</a>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>Image</Breadcrumb.Item>
+                <Breadcrumb.Item style={{ color: "#ffffff" }}>Image</Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <a href="./contactus">Contact Us</a>
+                    <a href="./contactus" style={{ color: "#ffffff" }}>Contact Us</a>
                 </Breadcrumb.Item>
             </Breadcrumb>,
         </div>

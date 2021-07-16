@@ -226,11 +226,11 @@ const RegisterForm = () => {
 
         <Form.Item
           wrapperCol={{
-            offset: 10,
+            offset: 9,
             span: 16,
           }}
         >
-          <Link to='/signin' style={{ textAlign: "center", color: "#ffffff" }}>Already a member? Sign in here.</Link>
+          <Link to='/signin' style={{ color: "#ffffff", fontSize: "1.25rem", textAlign: "center", }}>Already a member? Sign in here.</Link>
         </Form.Item>
       </Form>
     </div>
