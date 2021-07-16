@@ -5,24 +5,12 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import signInSchema from "./signInSchema";
 import "./signInForm.css"
-import { Form, Input, Button, PageHeader } from 'antd';
+import { Form, Input, Button, Typography } from 'antd';
 
-//Styling 
-const signInStyle = {
-    padding: "25%",
-    justifyContent: "center"
-}
-const titleStyle = {
-    textAlign: "center",
-    paddingLeft: "25%",
-    // fontSize: "68px"
-}
-const linkStyle = {
-    textAlign: "center",
-    paddingLeft: "43%",
-    margin: "10%",
-}
+//Styling
+const { Title } = Typography;
 
+// Signin
 const initialFormValues = {
     username: '',
     password: ''
@@ -122,19 +110,13 @@ const SignInForm = () => {
                 wrapperCol={{
                     span: 16,
                 }}
-                style={signInStyle}
-            // initialValues={{
-            //   remember: true,
-            // }}
+                style={{ padding: "15%" }}
+                initialValues={{
+                    remember: true,
+                }}
             >
 
-                <PageHeader
-                    label="SignIn "
-                    className="site-page-header"
-                    title="SignIn"
-                    style={titleStyle}
-                />
-
+                <Title level={1} style={{ textAlign: "center" }}>Signin</Title>
                 <div>
                     <div>{formErrors.username}</div>
                     <div>{formErrors.password}</div>
@@ -177,12 +159,12 @@ const SignInForm = () => {
                         span: 16,
                     }}
                 >
-                    <Button type="primary" htmlType="submit" disabled={disabled}>Submit</Button>
+                    <Button type="primary" htmlType="submit" disabled={disabled} style={{ textAlign: "center" }}>Submit</Button>
                 </Form.Item>
 
                 {/* new users click here, or something else, need to sign up? */}
                 <div className='sign-in-link'>
-                    <Link to='/register' style={linkStyle}>Not a member? Register here.</Link>
+                    <Link to='/register' style={{ textAlign: "center" }}>Not a member? Register here.</Link>
                 </div>
             </Form>
         </div >

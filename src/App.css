@@ -23,3 +23,9 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+
+html, body {
+  margin:0;
+  padding:0;
+  background: linear-gradient(135deg, #f4ffb8 1%, #d9f7be 100%);
+}

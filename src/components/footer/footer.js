@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div>
             <Breadcrumb>
-                <Breadcrumb.Item>
+                <Breadcrumb.Item style={{ textAlign: "center" }}>
                     <a href="./signin">Sign In</a>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Image</Breadcrumb.Item>
