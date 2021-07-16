@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import ValuesInput from "./ValuesInput";
+import { connect } from "react-redux";
+import { values } from "../../actions";
+// use setValues action to send true values to the ValuesPrompt
 
 const initialValues = {
     valuesList: {
@@ -78,4 +81,12 @@ const Values = () => {
     )
 }
 
-export default Values;
+const mapStateToProps = (state) => {
+    return {
+      valuesList: state.values
+    }
+  };
+  
+  const mapDispatchToProps = { values };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Values);
