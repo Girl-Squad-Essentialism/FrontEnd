@@ -5,7 +5,7 @@ import { Breadcrumb } from 'antd';
 const Footer = () => {
     return (
         <div>
-            <Breadcrumb>
+            <Breadcrumb style={{ textAlign: "center" }}>
                 <Breadcrumb.Item>
                     <a href="./signin">Sign In</a>
                 </Breadcrumb.Item>

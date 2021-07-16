@@ -5,26 +5,12 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import registerSchema from "./registerSchema";
 import "./registerForm.css"
-import { Form, Input, Button, PageHeader } from 'antd';
+import { Form, Input, Button, Typography } from 'antd';
 
-//Styling 
-const registerStyle = {
-  padding: "25%",
-  justifyContent: "center"
-}
+//AntD Styling 
+const { Title } = Typography;
 
-const titleStyle = {
-  textAlign: "center",
-  paddingLeft: "25%",
-  // fontSize: "68px"
-}
-
-const linkStyle = {
-  textAlign: "center",
-  paddingLeft: "43%",
-  margin: "10%",
-}
-
+// Register 
 const initialFormValues = {
   username: '',
   password: '',
@@ -121,9 +107,8 @@ const RegisterForm = () => {
     });
   }, [formValues]);
 
-
   return (
-    <div>
+    <div className="main-register">
       <Form
         onSubmit={onSubmit}
         name="basic"
@@ -131,20 +116,15 @@ const RegisterForm = () => {
           span: 8,
         }}
         wrapperCol={{
-          span: 16,
+          span: 8,
         }}
-        style={registerStyle}
-      // initialValues={{
-      //   remember: true,
-      // }}
+        style={{ padding: "4%" }}
+        initialValues={{
+          remember: true,
+        }}
       >
 
-        <PageHeader
-          label="Register"
-          className="site-page-header"
-          title="Register"
-          style={titleStyle}
-        />
+        <Title level={1} style={{ textAlign: "center", color: "#ffffff" }}>Register</Title>
 
         <div>
           <div>{formErrors.username}</div>
@@ -235,16 +215,23 @@ const RegisterForm = () => {
 
         <Form.Item
           wrapperCol={{
-            offset: 8,
+            offset: 11,
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit" disabled={disabled}>Submit</Button>
+          <Button type="primary" htmlType="submit" disabled={disabled} style={{ textAlign: "center" }}>Submit</Button>
         </Form.Item>
 
-        <div className='sign-in-link'>
-          <Link to='/signin'style={linkStyle}>Already a member? Sign in here.</Link>
-        </div>
+
+
+        <Form.Item
+          wrapperCol={{
+            offset: 10,
+            span: 16,
+          }}
+        >
+          <Link to='/signin' style={{ textAlign: "center", color: "#ffffff" }}>Already a member? Sign in here.</Link>
+        </Form.Item>
       </Form>
     </div>
   );
